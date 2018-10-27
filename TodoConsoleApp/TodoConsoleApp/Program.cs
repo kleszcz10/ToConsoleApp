@@ -11,18 +11,25 @@ namespace TodoConsoleApp
             List<TaskModel> TodoList = new List<TaskModel>();
             do
             {
+                
                 ConsoleEx.Write("Wprowadź polecenie: ", ConsoleColor.Gray);
                 command = Console.ReadLine();
-                switch (command)
+                if(command.StartsWith("add"))
                 {
-                    case "add":
+                    if(command == "add")
+                    {
                         Commands.AddTask();
                         ConsoleEx.Write("Wprowadź nowe zadanie: ", ConsoleColor.Gray);
                         TodoList.Add(Commands.TaskParse(Console.ReadLine()));
-                        break;
-                    case "show":
-                        Commands.ShowTasks(TodoList);
-                        break;
+                    }
+                    if(command.Length > 3)
+                    {
+                        TodoList.Add(Commands.TaskParse(command.Replace("add ","")));
+                    }
+                }
+                if(command == "show")
+                {
+                    Commands.ShowTasks(TodoList);
                 }
             } while (command != "exit");
         }
