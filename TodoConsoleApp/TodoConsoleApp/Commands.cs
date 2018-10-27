@@ -30,7 +30,12 @@ namespace TodoConsoleApp
 
         public static void ShowTasks(List<TaskModel> list)
         {
-            ConsoleEx.WriteLine("|Index|        Opis        |Data rozpoczęcia|Data zakończenia|Całodniowe|Ważne|", ConsoleColor.Red);
+            Console.Clear();
+            int descriptionColumnWidth = Console.WindowWidth - 60;
+            if (descriptionColumnWidth < 0) descriptionColumnWidth = 0;
+            ConsoleEx.WriteLine("|Index|" +
+                "Opis".PadRight(descriptionColumnWidth) +
+                "|Data rozpoczęcia|Data zakończenia|Całodniowe|Ważne|", ConsoleColor.Red);
             if (list.Count != 0)
             {
                 foreach (TaskModel task in list)
@@ -38,7 +43,7 @@ namespace TodoConsoleApp
                     ConsoleEx.Write("|", ConsoleColor.Red);
                     ConsoleEx.Write(list.IndexOf(task).ToString().PadRight(5), ConsoleColor.Gray);
                     ConsoleEx.Write("|", ConsoleColor.Red);
-                    ConsoleEx.Write(task.Description.PadRight(20), ConsoleColor.Gray);
+                    ConsoleEx.Write(task.Description.PadRight(descriptionColumnWidth).Substring(0,descriptionColumnWidth), ConsoleColor.Gray);
                     ConsoleEx.Write("|", ConsoleColor.Red);
                     ConsoleEx.Write(task.StartDate.PadRight(16), ConsoleColor.Gray);
                     ConsoleEx.Write("|", ConsoleColor.Red);
