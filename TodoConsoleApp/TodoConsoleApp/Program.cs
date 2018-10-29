@@ -31,6 +31,17 @@ namespace TodoConsoleApp
                 {
                     Commands.ShowTasks(TodoList);
                 }
+                if(command.StartsWith("remove"))
+                {
+                    if(command == "remove")
+                    {
+                        Commands.RemoveTask(TodoList);
+                    }
+                    if(command.Length > 5)
+                    {
+                        Commands.RemoveTask(TodoList, int.Parse(command.Replace("remove ", "")));
+                    }
+                }
             } while (command != "exit");
         }
     }

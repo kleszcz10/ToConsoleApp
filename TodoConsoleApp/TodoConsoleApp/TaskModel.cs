@@ -9,7 +9,7 @@ namespace TodoConsoleApp
         public bool? Important { get; set; }
 
         private DateTime _startDate;
-        private DateTime _endDate;
+        private DateTime? _endDate;
 
         public string StartDate
         {
@@ -19,7 +19,15 @@ namespace TodoConsoleApp
 
         public string EndDate
         {
-            get => _endDate.ToString("d");
+            get
+            {
+                if (_endDate != null)
+                {
+                    return _endDate.Value.ToString("d");
+                }
+                else return "";
+            }
+
             set => _endDate = DateParse(value);
         }
 
@@ -27,7 +35,6 @@ namespace TodoConsoleApp
         {
             Description = description;
             StartDate = startDate;
-            EndDate = startDate;
             AllDayTask = true;
             if (important == "true" || important == "false")
             {

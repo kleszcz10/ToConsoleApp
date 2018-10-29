@@ -56,5 +56,26 @@ namespace TodoConsoleApp
                 }
             }
         }
+
+        public static void RemoveTask(List<TaskModel> list)
+        {
+            ConsoleEx.Write($"Podaj numer id zadania które chcesz usunąć [0-{list.Count-1}]: ", ConsoleColor.Yellow);
+            int idOfTaskToRemove = int.Parse(Console.ReadLine());
+            if (idOfTaskToRemove >= 0 && idOfTaskToRemove <= list.Count-1)
+            {
+                list.RemoveAt(idOfTaskToRemove);
+            }
+            else ConsoleEx.WriteLine("Zadanie o podanym id nie istnieje",ConsoleColor.Red);
+            
+        }
+
+        public static void RemoveTask(List<TaskModel> list, int idOfTaskToRemove)
+        {
+            if (idOfTaskToRemove >= 0 && idOfTaskToRemove <= list.Count - 1)
+            {
+                list.RemoveAt(idOfTaskToRemove);
+            }
+            else ConsoleEx.WriteLine("Zadanie o podanym id nie istnieje", ConsoleColor.Red);
+        }
     }
 }
