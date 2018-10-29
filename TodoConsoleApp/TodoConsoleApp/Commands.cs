@@ -119,5 +119,26 @@ namespace TodoConsoleApp
 
             return newTaskList;
         }
+
+        public static void SaveTasksToHTML(List<TaskModel> list)
+        {
+            StringBuilder htmlFile = new StringBuilder();
+            htmlFile.AppendLine("<!DOCTYPE html>");
+            htmlFile.AppendLine("<html>");
+            htmlFile.AppendLine("<body>");
+            htmlFile.AppendLine("<table border=\"1px\" cellpadding=\"5\" cellspacing=\"0\">");
+            htmlFile.AppendLine("<tr><th>Opis</th><th>Data rozpoczęcia</th><th>Data zakończenia</th><th>Całodzienne</th><th>Ważne</th></tr>");
+
+
+            foreach (TaskModel task in list)
+            {
+                string fileLine = $"<tr><td>{task.Description}</td><td>{task.StartDate}</td><td>{task.EndDate}</td><td>{task.AllDayTask}</td><td>{task.Important}</td></tr>";
+                htmlFile.AppendLine(fileLine);
+            }
+            htmlFile.AppendLine("</table>" +
+                                "</body>" +
+                                "</html>");
+            File.WriteAllText("data.html", htmlFile.ToString());
+        }
     }
 }

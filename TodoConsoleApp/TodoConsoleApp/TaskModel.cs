@@ -47,7 +47,8 @@ namespace TodoConsoleApp
             Description = description;
             StartDate = startDate;
             EndDate = endDate;
-            AllDayTask = false;
+            if (EndDate == "") AllDayTask = true;
+            else AllDayTask = false;
             if (important == "true" || important == "false")
             {
                 Important = bool.Parse(important);

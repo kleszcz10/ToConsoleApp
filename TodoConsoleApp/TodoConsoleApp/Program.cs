@@ -49,6 +49,10 @@ namespace TodoConsoleApp
                 {
                     Commands.SaveTasks(TodoList);
                 }
+                if (command == "savehtml")
+                {
+                    Commands.SaveTasksToHTML(TodoList);
+                }
                 if (command == "load")
                 {
                     if(Commands.LoadTasks() != null)
