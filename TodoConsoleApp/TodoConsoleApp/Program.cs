@@ -20,11 +20,14 @@ namespace TodoConsoleApp
                     {
                         Commands.AddTask();
                         ConsoleEx.Write("Wprowadź nowe zadanie: ", ConsoleColor.Gray);
-                        TodoList.Add(Commands.TaskParse(Console.ReadLine()));
+                        TaskModel newTask = Commands.TaskParse(Console.ReadLine());
+                        if(newTask != null) TodoList.Add(newTask);
+
                     }
                     if(command.Length > 3)
                     {
-                        TodoList.Add(Commands.TaskParse(command.Replace("add ","")));
+                        TaskModel newTask = Commands.TaskParse(command.Replace("add ", ""));
+                        if(newTask != null) TodoList.Add(newTask);
                     }
                 }
                 if(command == "show")
@@ -40,6 +43,17 @@ namespace TodoConsoleApp
                     if(command.Length > 5)
                     {
                         Commands.RemoveTask(TodoList, int.Parse(command.Replace("remove ", "")));
+                    }
+                }
+                if(command == "save")
+                {
+                    Commands.SaveTasks(TodoList);
+                }
+                if (command == "load")
+                {
+                    if(Commands.LoadTasks() != null)
+                    {
+                        TodoList = Commands.LoadTasks();
                     }
                 }
             } while (command != "exit");

@@ -8,12 +8,12 @@ namespace TodoConsoleApp
         public bool? AllDayTask { get; set; }
         public bool? Important { get; set; }
 
-        private DateTime _startDate;
+        private DateTime? _startDate;
         private DateTime? _endDate;
 
         public string StartDate
         {
-            get => _startDate.ToString("d");
+            get => _startDate.Value.ToString("yyyy-MM-dd");
             set => _startDate = DateParse(value);
         }
 
@@ -23,7 +23,7 @@ namespace TodoConsoleApp
             {
                 if (_endDate != null)
                 {
-                    return _endDate.Value.ToString("d");
+                    return _endDate.Value.ToString("yyyy-MM-dd");
                 }
                 else return "";
             }
@@ -54,14 +54,14 @@ namespace TodoConsoleApp
             }
         }
 
-        private DateTime DateParse(string date)
+        private DateTime? DateParse(string date)
         {
             string[] dateTable = date.Split('-');
             if (dateTable.Length == 3)
             {
                 return new DateTime(int.Parse(dateTable[0]), int.Parse(dateTable[1]), int.Parse(dateTable[2]));
             }
-            return new DateTime(0, 0, 0);
+            return null;
         }
     }
 }
