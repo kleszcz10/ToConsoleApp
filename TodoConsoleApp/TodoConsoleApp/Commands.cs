@@ -125,8 +125,14 @@ namespace TodoConsoleApp
             StringBuilder htmlFile = new StringBuilder();
             htmlFile.AppendLine("<!DOCTYPE html>");
             htmlFile.AppendLine("<html>");
+            htmlFile.AppendLine("<style>");
+            htmlFile.AppendLine("body {font-family: Helvetica, Arial, sans-serif; font-size: 24px;}");
+            htmlFile.AppendLine("th, td { padding: 15px; text-align: left;}");
+            htmlFile.AppendLine("tr:nth-child(even) {background-color: #f2f2f2;}");
+            htmlFile.AppendLine("th {background-color: #4CAF50; color: white;}");
+            htmlFile.AppendLine("</style>");
             htmlFile.AppendLine("<body>");
-            htmlFile.AppendLine("<table border=\"1px\" cellpadding=\"5\" cellspacing=\"0\">");
+            htmlFile.AppendLine("<table>");
             htmlFile.AppendLine("<tr><th>Opis</th><th>Data rozpoczęcia</th><th>Data zakończenia</th><th>Całodzienne</th><th>Ważne</th></tr>");
 
 
