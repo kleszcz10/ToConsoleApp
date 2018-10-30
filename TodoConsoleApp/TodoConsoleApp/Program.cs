@@ -43,7 +43,7 @@ namespace TodoConsoleApp
                         {
                             Commands.RemoveTask(TodoList);
                         }
-                        if (command.Length > 5)
+                        if (command.Length > 6)
                         {
                             Commands.RemoveTask(TodoList, int.Parse(command.Replace("remove ", "")));
                         }
