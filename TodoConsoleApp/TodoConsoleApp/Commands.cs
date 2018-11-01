@@ -146,5 +146,28 @@ namespace TodoConsoleApp
                                 "</html>");
             File.WriteAllText("data.html", htmlFile.ToString());
         }
+
+        public static void SortTasks(List<TaskModel> list)
+        {
+            ConsoleEx.WriteLine("Wybierz kolumnę do posortowania: ", ConsoleColor.Yellow);
+            ConsoleEx.WriteLine("\tOpis" + "[0]".PadLeft(22), ConsoleColor.DarkYellow);
+            ConsoleEx.WriteLine("\tData rozpoczęcia" + "[1]".PadLeft(10), ConsoleColor.DarkYellow);
+            ConsoleEx.WriteLine("\tData zakończnia" + "[2]".PadLeft(11), ConsoleColor.DarkYellow);
+            ConsoleEx.Write("Wprowadź numer kolumny do posortowania: ", ConsoleColor.Gray);
+            int columnId = int.Parse(Console.ReadLine());
+            switch(columnId)
+            {
+                case 0:
+                    list.Sort((x, y) => x.Description.CompareTo(y.Description));
+                    break;
+                case 1:
+                    list.Sort((x, y) => x.StartDate.CompareTo(y.StartDate));
+                    break;
+                case 2:
+                    list.Sort((x, y) => x.EndDate.CompareTo(y.EndDate));
+                    break;
+            }
+            
+        }
     }
 }

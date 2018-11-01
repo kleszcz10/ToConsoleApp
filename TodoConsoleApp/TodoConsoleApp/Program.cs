@@ -63,6 +63,10 @@ namespace TodoConsoleApp
                             TodoList = Commands.LoadTasks();
                         }
                     }
+                    if (command == "sort")
+                    {
+                        Commands.SortTasks(TodoList);
+                    }
                 } while (command != "exit");
             }
             else if(args[0] == "add") //Obsługa parametru 'add'
