@@ -74,6 +74,7 @@ Aby wygenerować plik html z listą wszystkich utworzonych zadań należy wybra�
 Wprowadź polecenie: savehtml
 ```
 >Wygenerowany plik będzie wyglądał w następujący sposób: 
+![enter image description here](https://raw.githubusercontent.com/kleszcz10/TodoConsoleApp/master/screenshot/savehtml.PNG)
 ### Wczytywanie listy zadań z pliku
 Aby wczytać listę zadań z pliku należy wywołać polecenie 'load'.
 ```sh
