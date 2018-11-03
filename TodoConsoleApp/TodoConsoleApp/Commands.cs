@@ -126,7 +126,7 @@ namespace TodoConsoleApp
             htmlFile.AppendLine("<!DOCTYPE html>");
             htmlFile.AppendLine("<html>");
             htmlFile.AppendLine("<style>");
-            htmlFile.AppendLine("body {font-family: Helvetica, Arial, sans-serif; font-size: 24px;}");
+            htmlFile.AppendLine("body {font-family: Helvetica, Arial, sans-serif; font-size: 12px;}");
             htmlFile.AppendLine("th, td { padding: 15px; text-align: left;}");
             htmlFile.AppendLine("tr:nth-child(even) {background-color: #f2f2f2;}");
             htmlFile.AppendLine("th {background-color: #4CAF50; color: white;}");

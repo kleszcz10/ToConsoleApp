@@ -1,3 +1,4 @@
+
 # TodoConsoleApp
 Rozwiązanie warsztatów nr 1 w CodersLab.
 ## Obsługiwane funkcje programu
@@ -51,12 +52,28 @@ Podaj numer id zadania które chcesz usunąć [0-1]:
 ```sh
 Wprowadź polecenie: remove 0
 ```
+### Sortowanie listy zadań
+Aby posortować listę zadań należy użyć polecenia 'sort' a następnie wybrać jedną z dostępnych opcji.
+```sh
+Wprowadź polecenie: sort
+Wybierz kolumnę do posortowania:
+        Opis                   [0]
+        Data rozpoczęcia       [1]
+        Data zakończnia        [2]
+Wprowadź numer kolumny do posortowania:
+```
 ### Zapis utworzonej listy zadań do pliku
 Aby zapisać utworzoną listę zadań należy wywołać polecenie 'save'
 ```sh
 Wprowadź polecenie: save
 ```
 > Utworzona lista zadań zostanie zapisana w pliku 'data.csv'.
+### Generowanie pliku html z listą zadań
+Aby wygenerować plik html z listą wszystkich utworzonych zadań należy wybrać polecenie 'savehtml'
+```sh
+Wprowadź polecenie: savehtml
+```
+>Wygenerowany plik będzie wyglądał w następujący sposób: 
 ### Wczytywanie listy zadań z pliku
 Aby wczytać listę zadań z pliku należy wywołać polecenie 'load'.
 ```sh
